@@ -10,11 +10,9 @@ Account leads can see which rolling retainers renew in the **next 45 days** by j
 
 ## Question 1 brief (onboarding)
 
-Shareable brief with embedded flow diagram:
+**Google Doc (anyone with the link):** https://docs.google.com/document/d/1Ne8oIgqKSdyNm1I4F_f0MdhdwGn2sRhpNJf6KfoOrJM/edit?usp=sharing
 
-**https://mharooney.github.io/harbourline-renewal-radar/q1/**
-
-(Google Doc mirror pending OAuth reconnect — see note on that page.)
+HTML mirror with diagram: https://mharooney.github.io/harbourline-renewal-radar/q1/
 
 ## Why this exists
 
