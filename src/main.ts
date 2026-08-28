@@ -594,7 +594,16 @@ function paintResults() {
   const scrollY = window.scrollY
   results.innerHTML = renderResults()
   window.scrollTo({ top: scrollY })
+  paintChrome()
+}
 
+/**
+ * Repaint everything outside the results region. Split out so the error path
+ * can call it too: if a CSV fails to parse we discard the old result, and the
+ * summary must not keep showing counts from data that is no longer loaded.
+ */
+function paintChrome() {
+  const results = document.querySelector<HTMLDivElement>('#results')!
   document.querySelector<HTMLElement>('#summary')!.innerHTML = renderSummary()
   bindSummary()
 
@@ -660,11 +669,7 @@ function recompute() {
           <p class="error-body muted">The previous data was discarded. Reload the sample exports to start again.</p>
         </div>`
     }
-    const status = document.querySelector<HTMLElement>('#source-status')
-    if (status) {
-      status.textContent = state.status.message
-      status.classList.add('is-error')
-    }
+    paintChrome()
     document.querySelector<HTMLDetailsElement>('.datasource')?.setAttribute('open', '')
     return
   }
