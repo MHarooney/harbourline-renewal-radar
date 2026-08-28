@@ -8,6 +8,14 @@ Account leads can see which rolling retainers renew in the **next 45 days** by j
 
 **https://mharooney.github.io/harbourline-renewal-radar/**
 
+## Question 1 brief (onboarding)
+
+Shareable brief with embedded flow diagram:
+
+**https://mharooney.github.io/harbourline-renewal-radar/q1/**
+
+(Google Doc mirror pending OAuth reconnect — see note on that page.)
+
 ## Why this exists
 
 Two brands lapsed last quarter because renewal dates sat in a billing export nobody watched, while delivery context lived in a separate project file. Renewal Radar pulls both, fuzzy-matches clients by name, and surfaces what needs attention before the window closes.

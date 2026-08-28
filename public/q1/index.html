@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbourline Relay — Client Onboarding (Palm Trial Q1)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #14201a;
+        --muted: #5c6b63;
+        --accent: #1f6b4a;
+        --line: #d5ddd7;
+        --paper: #f4f7f4;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #eef3ef 0%, var(--paper) 35%);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      .eyebrow {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin: 0 0 0.4rem;
+      }
+      h1 { font-size: 1.85rem; letter-spacing: -0.02em; margin: 0 0 0.75rem; }
+      h2 { font-size: 1.15rem; margin: 1.6rem 0 0.6rem; }
+      p, li { color: var(--ink); }
+      .meta, .muted { color: var(--muted); }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      th, td {
+        text-align: left;
+        padding: 0.65rem 0.7rem;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        background: #e4f2eb;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      ol, ul { padding-left: 1.2rem; }
+      figure {
+        margin: 1rem 0 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.75rem;
+      }
+      figure img { width: 100%; height: auto; display: block; }
+      figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+      .note {
+        margin-top: 2rem;
+        padding: 0.85rem 1rem;
+        border-left: 3px solid var(--accent);
+        background: #fff;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Palm Outsourcing trial · Question 1</p>
+      <h1>What Relay should do about client onboarding</h1>
+      <p class="meta">Audience: Nadia (Ops) · Harbourline · 1–2 pages</p>
+
+      <p>
+        Harbourline’s nine-step onboarding currently takes ~half a day per brand,
+        varies by person, and sometimes drops steps (one brand went two weeks without
+        Shopify access). With six new brands next month, Relay should own
+        <strong>orchestration, state, reminders, and safe automation</strong> — not
+        replace humans for credentials, legal, or money.
+      </p>
+
+      <h2>1. What sits in Relay vs with a human</h2>
+      <table>
+        <thead>
+          <tr><th>Step</th><th>Relay</th><th>Human</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shopify / analytics access</td>
+            <td>Task, invite link/status, SLA, escalate if stale</td>
+            <td>Grant/accept access in the vendor UI</td>
+          </tr>
+          <tr>
+            <td>Folder / board / kickoff doc</td>
+            <td>Create from approved templates when APIs exist</td>
+            <td>Customize strategy content and owners</td>
+          </tr>
+          <tr>
+            <td>Billing / contract filing</td>
+            <td>Checklist, due dates, evidence links</td>
+            <td>Enter terms, sign, file judgment calls</td>
+          </tr>
+          <tr>
+            <td>Kickoff call</td>
+            <td>Scheduling link + booked/not tracked</td>
+            <td>Resolve calendar conflicts</td>
+          </tr>
+          <tr>
+            <td>Welcome email</td>
+            <td>Draft from template; send when prerequisites met</td>
+            <td>Approve edge-case tone / first send</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Rule:</strong> Relay never silently skips a required step.
+        Irreversible client-facing actions stay human-gated unless Nadia explicitly
+        trusts an automation.
+      </p>
+
+      <h2>2. State Relay tracks</h2>
+      <p>
+        Per <strong>Client</strong> and <strong>OnboardingRun</strong>: owners,
+        start/target dates, run status (<code>active | blocked | complete | cancelled</code>).
+      </p>
+      <p>
+        Per <strong>step</strong>:
+        <code>pending | in_progress | waiting_external | waiting_human | done | failed | waived</code>,
+        assignee, due/completed times, evidence URL, failure reason, attempt count.
+      </p>
+      <p>
+        Plus automation <strong>idempotency keys</strong> (folder id, board id, email id)
+        so retries do not duplicate work.
+      </p>
+
+      <h2>3. When a step fails mid-run</h2>
+      <ol>
+        <li>Mark the step <code>failed</code> and pause only <strong>dependent</strong> steps.</li>
+        <li>Keep completed work (no destructive rollback of folders/boards already created).</li>
+        <li>Notify the step owner; escalate on SLA breach (same class of miss as the two-week Shopify gap).</li>
+        <li>Resume via <strong>retry</strong>, or <strong>waive</strong> with a required reason in the audit log.</li>
+        <li>Never auto-skip a required step.</li>
+      </ol>
+
+      <h2>4. Understand before implementation</h2>
+      <p>
+        Systems of record and API readiness for each of the nine steps; who owns each step;
+        required vs optional steps and hard dependencies (e.g. welcome email only after
+        contract + billing); the <strong>client identity</strong> fields that will also feed renewals later.
+      </p>
+
+      <h2>5. Assumptions that break the architecture if wrong</h2>
+      <ol>
+        <li>One linear checklist per brand (fails for multi-store / phased SOWs).</li>
+        <li>Drive/board/email APIs exist (otherwise Relay is checklist + reminders only).</li>
+        <li>A single ops owner model (fails if pods need a work queue).</li>
+        <li>Client name is a stable join key (fails without a golden <code>client_id</code>).</li>
+        <li>The process is strictly sequential (many steps can run in parallel).</li>
+      </ol>
+
+      <h2>6. First three questions for Nadia</h2>
+      <ol>
+        <li><strong>Which of the nine steps already have a system API or template Relay may write into?</strong> → Sets automation vs checklist-only scope.</li>
+        <li><strong>What is the hard stop before kickoff / welcome email?</strong> → Sets the dependency graph and “complete.”</li>
+        <li><strong>Who is paged when Shopify access is still open after 48 hours?</strong> → Sets ownership and escalation.</li>
+      </ol>
+
+      <h2>7. Flow diagram</h2>
+      <figure>
+        <img src="../onboarding-flow.png" alt="Relay client onboarding flow diagram" />
+        <figcaption>Proposed onboarding run: create → checklist → outcomes → escalate/resume → complete.</figcaption>
+      </figure>
+
+      <h2>8. Issue to flag (not asked)</h2>
+      <p>
+        <strong>Golden client identity on day zero.</strong> Capture Shopify domain +
+        canonical/trading names when the run is created. Without this, onboarding, billing,
+        projects, and renewals cannot join reliably — the same root cause behind missed
+        access and lapsed retainers.
+      </p>
+
+      <p class="note">
+        Submission note: this page is the shareable brief with embedded diagram.
+        A Google Doc mirror will be published once Google OAuth is reconnected in Cursor
+        (current MCP/gcloud tokens return <code>invalid_grant</code>).
+      </p>
+    </main>
+  </body>
+</html>
