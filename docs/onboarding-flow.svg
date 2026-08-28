@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="640" viewBox="0 0 980 640">
+  <rect width="980" height="640" fill="#f4f7f4"/>
+  <text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#14201a">Relay  Client Onboarding (proposed)</text>
+  <text x="40" y="68" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5c6b63">Orchestration + accountability. Humans keep credentials, legal, and money decisions.</text>
+
+  <rect x="40" y="100" width="200" height="56" rx="10" fill="#1f6b4a"/>
+  <text x="140" y="134" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">New brand signed</text>
+
+  <path d="M240 128 H300" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="100" width="220" height="56" rx="10" fill="#ffffff" stroke="#1f6b4a" stroke-width="2"/>
+  <text x="410" y="126" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Create Onboarding Run</text>
+  <text x="410" y="144" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">owners · SLA · client identity</text>
+
+  <path d="M520 128 H580" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="580" y="88" width="360" height="80" rx="10" fill="#e4f2eb" stroke="#1f6b4a" stroke-width="1.5"/>
+  <text x="760" y="118" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Run checklist (9 steps)</text>
+  <text x="760" y="140" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Auto where APIs exist · Human-gated where not</text>
+  <text x="760" y="156" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Parallel steps allowed · dependencies enforced</text>
+
+  <path d="M760 168 V210" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <polygon points="760,210 820,250 760,290 700,250" fill="#fff" stroke="#1f6b4a" stroke-width="2"/>
+  <text x="760" y="246" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14201a">Step</text>
+  <text x="760" y="262" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14201a">outcome?</text>
+
+  <path d="M820 250 H900" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="850" y="242" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#1f6b4a">done</text>
+  <rect x="900" y="222" width="50" height="56" rx="8" fill="#1f6b4a"/>
+  <text x="925" y="255" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Next</text>
+
+  <path d="M760 290 V330" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
+  <text x="772" y="318" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8a5a00">waiting_human / waiting_external</text>
+  <rect x="620" y="330" width="280" height="70" rx="10" fill="#fff8e8" stroke="#8a5a00" stroke-width="1.5"/>
+  <text x="760" y="358" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8a5a00">Notify owner + SLA clock</text>
+  <text x="760" y="380" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Escalate on breach (e.g. Shopify &gt; 48h)</text>
+
+  <path d="M700 250 H520" stroke="#8b2e2e" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+  <text x="560" y="242" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8b2e2e">failed</text>
+  <rect x="300" y="220" width="220" height="70" rx="10" fill="#fde8e8" stroke="#8b2e2e" stroke-width="1.5"/>
+  <text x="410" y="248" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b2e2e">Mark failed · pause dependents</text>
+  <text x="410" y="270" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Keep completed work · no silent skip</text>
+
+  <path d="M410 290 V420 H620" stroke="#5c6b63" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
+  <path d="M760 400 V420" stroke="#5c6b63" stroke-width="2" fill="none"/>
+  <rect x="620" y="420" width="280" height="70" rx="10" fill="#ffffff" stroke="#5c6b63" stroke-width="1.5"/>
+  <text x="760" y="448" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Resume · Retry · or Waive</text>
+  <text x="760" y="470" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Waive requires reason + audit log</text>
+
+  <path d="M760 490 V520" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="620" y="520" width="280" height="70" rx="10" fill="#1f6b4a"/>
+  <text x="760" y="548" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">All required steps done?</text>
+  <text x="760" y="568" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#e4f2eb">Yes ’ Run complete · kickoff ready</text>
+
+  <rect x="40" y="330" width="220" height="260" rx="12" fill="#ffffff" stroke="#d5ddd7"/>
+  <text x="150" y="360" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">State Relay tracks</text>
+  <text x="56" y="390" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" run + client identity</text>
+  <text x="56" y="412" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" step status + assignee</text>
+  <text x="56" y="434" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" due / completed timestamps</text>
+  <text x="56" y="456" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" evidence links</text>
+  <text x="56" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" failure reason / attempts</text>
+  <text x="56" y="500" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" blocked_step on run</text>
+  <text x="56" y="522" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" waive audit entries</text>
+  <text x="56" y="544" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" automation idempotency keys</text>
+  <text x="56" y="566" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">Flag: golden client_id day 0</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#1f6b4a"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8a5a00"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8b2e2e"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5c6b63"/>
+    </marker>
+  </defs>
+</svg>
