@@ -22,11 +22,10 @@ export function normalizeName(raw: string): string {
     return SUFFIX_MAP[token] ?? token
   })
 
-  // Drop ultra-generic trailing "co" only when another token remains
-  // (keeps "Cedar Co" distinguishable via "cedar").
-  while (tokens.length > 1 && (tokens[tokens.length - 1] === 'co' || tokens[tokens.length - 1] === 'company')) {
-    // Keep mapped "co" — Harbour Brew Co should keep "co" for weak signal;
-    // actually stripping trailing co helps Cedar & Co vs Cedar and Co match.
+  // Drop trailing legal/generic suffixes so "Atlas Homewares LLC"
+  // matches "Atlas Homewares" and "Harbour Brew Co" matches "Harbor Brew".
+  const trailingNoise = new Set(['co', 'company', 'ltd', 'inc', 'llc', 'corp'])
+  while (tokens.length > 1 && trailingNoise.has(tokens[tokens.length - 1]!)) {
     tokens.pop()
   }
 
