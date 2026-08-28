@@ -472,7 +472,7 @@ function renderSummary(): string {
     },
     {
       view: 'review',
-      n: String((s?.needsReview ?? 0) + (s?.unknown ?? 0)),
+      n: s ? String(s.needsReview + s.unknown) : '—',
       label: 'Needs a human',
       sub: 'Uncertain joins and unusable dates',
       tone: 'info',
