@@ -11,7 +11,7 @@ Part of **Relay** for Harbourline — Palm Outsourcing trial, Question 2.
 
 Harbourline runs rolling three-month retainers. Renewal dates live in a billing export. Scope and
 delivery history live in a separate project export. The two files share **no client ID**, and the names
-in them do not match. Two brands lapsed because nobody joined the files in time.
+in them do not match. Two brands lapsed because nobody noticed the renewal date.
 
 Renewal Radar joins them by name and puts one list in front of an account lead: what is already
 overdue, what renews inside 45 days, and — just as importantly — what the join could not be trusted to
@@ -113,9 +113,12 @@ Deterministic, five stages, no machine learning:
 | `ambiguous` | Two candidates within 0.10 of each other | **Not joined**, both candidates shown |
 | `unmatched` | Nothing ≥ 0.78 | Not joined, raised as an issue |
 
-The thresholds are calibrated against real cases rather than picked round: `Harbour Brew Co` ↔
-`Harbor Brew` scores 92% and is accepted; `Ridgeway Outdoors` ↔ `Ridgeline Outdoors` scores 78% and is
-rejected as the different brand it is.
+The thresholds are calibrated against representative cases in the sample dataset rather than picked
+round: `Harbour Brew Co` ↔ `Harbor Brew` scores 92% and is accepted; `Ridgeway Outdoors` ↔
+`Ridgeline Outdoors` scores 78% and is rejected as the different brand it is. The sample data is
+invented for this exercise, so these numbers show the thresholds behaving as intended on the cases the
+brief asks for — they are not evidence of an error rate on Harbourline's real exports. Tuning them
+against real files would be step one of a real engagement.
 
 > **Chosen:** the runner-up gap, not just the score.
 > **Why:** score alone cannot tell you that a match is *unsafe*. `Marberry Home` is 92% similar to

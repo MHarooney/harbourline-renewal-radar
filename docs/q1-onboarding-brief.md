@@ -2,14 +2,19 @@
 
 **For:** Nadia · Harbourline Operations  ·  **From:** the Relay build  ·  **Length:** 2 pages
 
-Nine steps, three people, half a day, and one brand that went two weeks without store access. Six more
-brands land next month, so the variance stops being an irritation and starts being a churn risk.
+**What you told me:** nine manual steps across three people, about half a day per brand, the process
+varies by person, things get missed, one brand went two weeks without store access, and six more
+brands arrive next month.
 
-My position: **Relay should own the sequence, the state and the chasing — not the clicking.** Most of
-the half-day is not work, it is coordination: who has done what, what is waiting on what, and who
-notices when nothing has moved. That is what should be automated first. Building a bot that drives
-Shopify's invite screen is the expensive part and the part that breaks quietly; building the thing
-that knows a Shopify invite has been sitting unaccepted for 48 hours is cheap and never breaks.
+**My reading of it:** the two-week gap is the tell. Nobody chose to leave that brand without access —
+the process simply had no way to notice. That points at coordination, not execution: who has done
+what, what is waiting on what, and who finds out when nothing has moved. I would want to confirm that
+against the real step timings, but if it holds, coordination is what to automate first.
+
+My position: **Relay should own the sequence, the state and the chasing — not the clicking.** Building
+a bot that drives Shopify's invite screen is the expensive part and the part that breaks quietly;
+building the thing that knows a Shopify invite has been sitting unaccepted for 48 hours is cheap and
+never breaks.
 
 ## 1. Relay versus a person
 
@@ -65,7 +70,7 @@ renewals will all need to join on them later.
 2. **Drive / board / email APIs are available.** If not, Relay is checklist-plus-reminders — still
    valuable, but a different product.
 3. **One accountable owner per step.** Breaks if pods need a shared queue instead.
-4. **The client name is a stable join key.** It is not. See §8.
+4. **The client name is a stable join key.** The Question 2 exports show it is not. See §8.
 5. **The process is sequential.** It is mostly parallel; a sequential model would make onboarding
    *slower* than the manual version.
 
@@ -86,25 +91,35 @@ See `onboarding-flow.png`.
 
 ## 8. The thing you did not ask about
 
-**Harbourline has no client identity, and it is already costing you.**
+**Harbourline has no durable client identity, and onboarding is where you could create one.**
 
-Onboarding, billing, project delivery and renewals each hold their own version of a client's name.
-Nothing joins them. I hit this immediately building the Renewal Radar: the billing export and the
-project export share no ID, so the two files have to be matched on spelling — and two brands lapsed
-because that match was being done in someone's head, or not at all.
+This is the one place I would push back on the scope you set, so I want to be precise about what is
+established and what is my inference.
 
-Onboarding is the one moment where you can fix it cheaply, because it is the moment a client first
-exists. If the onboarding run issues a `client_id` and captures the Shopify domain and the legal and
-trading names on day zero, every downstream system inherits a real key. If it does not, you will be
-fuzzy-matching names forever and quietly accepting the error rate that comes with it.
+**Established, from the Question 2 brief:** the billing export and the project export share no client
+ID, and the same client is spelled differently in each. Two brands lapsed because nobody noticed the
+renewal date.
 
-This is a small addition to the onboarding scope and a large reduction in future pain. I would put it
-in the first version rather than the second.
+**My inference:** those are two symptoms of the same gap. The stated cause of the lapses is that
+nobody was watching — I am not claiming name-matching caused them. But building the Renewal Radar, the
+absence of a shared key is what made the two files hard to join at all, and it is why the tool has to
+show a confidence score and ask a human to confirm some matches instead of simply reporting the
+answer. A system that cannot reliably say "this billing row and this project row are the same client"
+is a weaker early-warning system than one that can, whatever the immediate cause of any given miss.
+
+**Why it belongs in onboarding:** it is the moment a client first exists, so it is the cheapest moment
+to assign identity. If the onboarding run issues a `client_id` and captures the Shopify domain and the
+legal and trading names on day zero, every downstream system inherits a real key. If it does not, you
+will be fuzzy-matching names indefinitely and accepting whatever error rate comes with that.
+
+Small addition to the onboarding scope, large reduction in future pain. I would put it in the first
+version rather than the second.
 
 ---
 
 **The strongest argument against my position:** if most of the nine steps turn out to have clean APIs,
 then a more aggressively automated Relay would beat mine on raw time saved, and my human-gated
 boundary would look overly cautious. I would accept that — with the caveat that the two-week access
-gap was a *visibility* failure, not an automation failure, so I would still build the state machine
-first and add automations onto it, rather than the other way round.
+gap reads to me as a *visibility* failure rather than an automation one, so I would still build the
+state machine first and add automations onto it, rather than the other way round. If the step timings
+say otherwise, that changes the order, not the architecture.

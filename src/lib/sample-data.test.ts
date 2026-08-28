@@ -135,7 +135,7 @@ describe('every required data problem is represented', () => {
 })
 
 describe('the demo view an account lead sees', () => {
-  it('puts the two lapsed brands at the top of the queue', () => {
+  it('puts the two overdue brands at the top of the queue', () => {
     const queue = [...result.overdue, ...result.due]
     expect(queue[0]!.displayName).toBe('Solstice Beauty')
     expect(queue[0]!.daysToRenewal).toBeLessThan(0)
