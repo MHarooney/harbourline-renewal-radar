@@ -1,82 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="640" viewBox="0 0 980 640">
-  <rect width="980" height="640" fill="#f4f7f4"/>
-  <text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#14201a">Relay  Client Onboarding (proposed)</text>
-  <text x="40" y="68" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5c6b63">Orchestration + accountability. Humans keep credentials, legal, and money decisions.</text>
-
-  <rect x="40" y="100" width="200" height="56" rx="10" fill="#1f6b4a"/>
-  <text x="140" y="134" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">New brand signed</text>
-
-  <path d="M240 128 H300" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <rect x="300" y="100" width="220" height="56" rx="10" fill="#ffffff" stroke="#1f6b4a" stroke-width="2"/>
-  <text x="410" y="126" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Create Onboarding Run</text>
-  <text x="410" y="144" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">owners · SLA · client identity</text>
-
-  <path d="M520 128 H580" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <rect x="580" y="88" width="360" height="80" rx="10" fill="#e4f2eb" stroke="#1f6b4a" stroke-width="1.5"/>
-  <text x="760" y="118" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Run checklist (9 steps)</text>
-  <text x="760" y="140" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Auto where APIs exist · Human-gated where not</text>
-  <text x="760" y="156" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Parallel steps allowed · dependencies enforced</text>
-
-  <path d="M760 168 V210" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <polygon points="760,210 820,250 760,290 700,250" fill="#fff" stroke="#1f6b4a" stroke-width="2"/>
-  <text x="760" y="246" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14201a">Step</text>
-  <text x="760" y="262" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14201a">outcome?</text>
-
-  <path d="M820 250 H900" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <text x="850" y="242" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#1f6b4a">done</text>
-  <rect x="900" y="222" width="50" height="56" rx="8" fill="#1f6b4a"/>
-  <text x="925" y="255" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Next</text>
-
-  <path d="M760 290 V330" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
-  <text x="772" y="318" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8a5a00">waiting_human / waiting_external</text>
-  <rect x="620" y="330" width="280" height="70" rx="10" fill="#fff8e8" stroke="#8a5a00" stroke-width="1.5"/>
-  <text x="760" y="358" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8a5a00">Notify owner + SLA clock</text>
-  <text x="760" y="380" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Escalate on breach (e.g. Shopify &gt; 48h)</text>
-
-  <path d="M700 250 H520" stroke="#8b2e2e" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
-  <text x="560" y="242" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8b2e2e">failed</text>
-  <rect x="300" y="220" width="220" height="70" rx="10" fill="#fde8e8" stroke="#8b2e2e" stroke-width="1.5"/>
-  <text x="410" y="248" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b2e2e">Mark failed · pause dependents</text>
-  <text x="410" y="270" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Keep completed work · no silent skip</text>
-
-  <path d="M410 290 V420 H620" stroke="#5c6b63" stroke-width="2" fill="none" marker-end="url(#arrowGray)"/>
-  <path d="M760 400 V420" stroke="#5c6b63" stroke-width="2" fill="none"/>
-  <rect x="620" y="420" width="280" height="70" rx="10" fill="#ffffff" stroke="#5c6b63" stroke-width="1.5"/>
-  <text x="760" y="448" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">Resume · Retry · or Waive</text>
-  <text x="760" y="470" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#5c6b63">Waive requires reason + audit log</text>
-
-  <path d="M760 490 V520" stroke="#1f6b4a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="620" y="520" width="280" height="70" rx="10" fill="#1f6b4a"/>
-  <text x="760" y="548" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">All required steps done?</text>
-  <text x="760" y="568" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#e4f2eb">Yes ’ Run complete · kickoff ready</text>
-
-  <rect x="40" y="330" width="220" height="260" rx="12" fill="#ffffff" stroke="#d5ddd7"/>
-  <text x="150" y="360" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#14201a">State Relay tracks</text>
-  <text x="56" y="390" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" run + client identity</text>
-  <text x="56" y="412" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" step status + assignee</text>
-  <text x="56" y="434" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" due / completed timestamps</text>
-  <text x="56" y="456" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" evidence links</text>
-  <text x="56" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" failure reason / attempts</text>
-  <text x="56" y="500" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" blocked_step on run</text>
-  <text x="56" y="522" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" waive audit entries</text>
-  <text x="56" y="544" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">" automation idempotency keys</text>
-  <text x="56" y="566" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5c6b63">Flag: golden client_id day 0</text>
-
-  <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#1f6b4a"/>
-    </marker>
-    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#8a5a00"/>
-    </marker>
-    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#8b2e2e"/>
-    </marker>
-    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#5c6b63"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="646" viewBox="0 0 1080 646" font-family="'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Relay client onboarding: proposed flow</title>
+<desc id="desc">A new brand creates an onboarding run. Nine steps run in three parallel lanes: access granted by a person, workspace created by Relay, and commercial decisions made by a person. Relay records status, owner, due date, attempts and evidence for every step. The kickoff call and welcome email wait until access, contract and billing are done. If a step fails, Relay retries what is safely retryable, assigns an owner with an SLA clock for anything else, escalates on breach, and resumes from the blocked step without discarding completed work. The run completes when every required step is done or explicitly waived with a written reason.</desc>
+<rect width="1080" height="646" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#c6cedb"/></marker><marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#e8cf9e"/></marker></defs>
+<text x="40" y="40" font-size="21" fill="#16202b" font-weight="700" text-anchor="start" letter-spacing="-0.3">Relay â€” client onboarding</text>
+<text x="40" y="63" font-size="13" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">Relay owns sequence, state, reminders and the audit trail. People keep credentials, legal and money decisions.</text>
+<rect x="40" y="92" width="190" height="48" rx="8" fill="#14344f" stroke="#14344f"/>
+<text x="135" y="121" font-size="14" fill="#ffffff" font-weight="600" text-anchor="middle" letter-spacing="0">New brand signed</text>
+<polyline points="232 116 254 116" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="258" y="92" width="270" height="48" rx="8" fill="#ffffff" stroke="#c6cedb"/>
+<text x="393" y="113" font-size="14" fill="#16202b" font-weight="600" text-anchor="middle" letter-spacing="0">Create onboarding run</text>
+<text x="393" y="130" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="middle" letter-spacing="0">owner  Â·  target date  Â·  client identity</text>
+<polyline points="393 142 393 156" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="137 156 559 156" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="137 156 137 166" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<polyline points="348 156 348 166" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<polyline points="559 156 559 166" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="168" width="195" height="156" rx="8" fill="#eef4fa" stroke="#b9d0ea"/>
+<text x="54" y="190" font-size="13.5" fill="#143c6e" font-weight="700" text-anchor="start" letter-spacing="0">Access</text>
+<text x="54" y="206" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">a person grants</text>
+<circle cx="58" cy="224" r="2.4" fill="#143c6e"/>
+<text x="68" y="228" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Shopify store access</text>
+<circle cx="58" cy="242" r="2.4" fill="#143c6e"/>
+<text x="68" y="246" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Analytics access</text>
+<text x="54" y="286" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">Relay tracks the invite and</text>
+<text x="54" y="299" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">chases it; it never holds the</text>
+<text x="54" y="312" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">credentials.</text>
+<rect x="251" y="168" width="195" height="156" rx="8" fill="#eef4fa" stroke="#b9d0ea"/>
+<text x="265" y="190" font-size="13.5" fill="#143c6e" font-weight="700" text-anchor="start" letter-spacing="0">Workspace</text>
+<text x="265" y="206" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">Relay creates</text>
+<circle cx="269" cy="224" r="2.4" fill="#143c6e"/>
+<text x="279" y="228" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Folder structure</text>
+<circle cx="269" cy="242" r="2.4" fill="#143c6e"/>
+<text x="279" y="246" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Project board</text>
+<circle cx="269" cy="260" r="2.4" fill="#143c6e"/>
+<text x="279" y="264" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Kickoff document</text>
+<text x="265" y="286" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">Templated and repeatable, so</text>
+<text x="265" y="299" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">an automation is safe to</text>
+<text x="265" y="312" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">retry.</text>
+<rect x="462" y="168" width="195" height="156" rx="8" fill="#eef4fa" stroke="#b9d0ea"/>
+<text x="476" y="190" font-size="13.5" fill="#143c6e" font-weight="700" text-anchor="start" letter-spacing="0">Commercial</text>
+<text x="476" y="206" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">a person decides</text>
+<circle cx="480" cy="224" r="2.4" fill="#143c6e"/>
+<text x="490" y="228" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Billing setup</text>
+<circle cx="480" cy="242" r="2.4" fill="#143c6e"/>
+<text x="490" y="246" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Contract filing</text>
+<text x="476" y="286" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">Money and legal stay with a</text>
+<text x="476" y="299" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">human; Relay only tracks the</text>
+<text x="476" y="312" font-size="10.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">evidence.</text>
+<text x="348" y="344" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="middle" letter-spacing="0">Independent steps run in parallel â€” nothing waits on a step it does not depend on.</text>
+<polyline points="137 326 137 356" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="348 326 348 356" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="559 326 559 356" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="137 356 559 356" fill="none" stroke="#c6cedb" stroke-width="1.6"/>
+<polyline points="348 356 348 372" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="374" width="617" height="44" rx="8" fill="#f8fafb" stroke="#c6cedb" stroke-dasharray="4 3"/>
+<text x="56" y="392" font-size="10" fill="#5a6675" font-weight="700" text-anchor="start" letter-spacing="0.08em">RELAY RECORDS, PER STEP</text>
+<text x="56" y="409" font-size="12" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">status  Â·  owner  Â·  due date  Â·  attempts  Â·  evidence link  Â·  failure reason  Â·  waiver reason</text>
+<polyline points="348 420 348 438" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="440" width="617" height="46" rx="8" fill="#ffffff" stroke="#c6cedb"/>
+<text x="348" y="460" font-size="13" fill="#16202b" font-weight="600" text-anchor="middle" letter-spacing="0">Dependency gate</text>
+<text x="348" y="476" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="middle" letter-spacing="0">the kickoff call and welcome email wait until access, contract and billing are done</text>
+<polyline points="348 488 348 504" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="506" width="617" height="42" rx="8" fill="#ffffff" stroke="#c6cedb"/>
+<text x="348" y="532" font-size="13" fill="#16202b" font-weight="600" text-anchor="middle" letter-spacing="0">Book kickoff call   Â·   Send welcome email</text>
+<polyline points="348 550 348 566" fill="none" stroke="#c6cedb" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="568" width="617" height="50" rx="8" fill="#1f5c43" stroke="#1f5c43"/>
+<text x="348" y="590" font-size="14" fill="#ffffff" font-weight="700" text-anchor="middle" letter-spacing="0">Run complete</text>
+<text x="348" y="607" font-size="11.5" fill="#cfe4d8" font-weight="400" text-anchor="middle" letter-spacing="0">every required step done, or waived with a written reason in the audit log</text>
+<text x="700" y="160" font-size="10" fill="#8a5100" font-weight="700" text-anchor="start" letter-spacing="0.08em">IF A STEP FAILS OR STALLS</text>
+<rect x="700" y="168" width="340" height="58" rx="8" fill="#fdf3e2" stroke="#e8cf9e"/>
+<text x="714" y="188" font-size="12.5" fill="#8a5100" font-weight="700" text-anchor="start" letter-spacing="0">Retryable failure</text>
+<text x="714" y="204" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Relay retries automatically. An idempotency key means a</text>
+<text x="714" y="217" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">second attempt cannot create a second folder or board.</text>
+<rect x="700" y="242" width="340" height="58" rx="8" fill="#fdf3e2" stroke="#e8cf9e"/>
+<text x="714" y="262" font-size="12.5" fill="#8a5100" font-weight="700" text-anchor="start" letter-spacing="0">Needs a person</text>
+<text x="714" y="278" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Assign the owner, start an SLA clock. Dependent steps pause;</text>
+<text x="714" y="291" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">independent ones keep running.</text>
+<rect x="700" y="316" width="340" height="58" rx="8" fill="#fdf3e2" stroke="#e8cf9e"/>
+<text x="714" y="336" font-size="12.5" fill="#8a5100" font-weight="700" text-anchor="start" letter-spacing="0">SLA breached</text>
+<text x="714" y="352" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Escalate to Nadia. This is the two-weeks-without-store-access</text>
+<text x="714" y="365" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">case, caught on day two instead of day fourteen.</text>
+<rect x="700" y="390" width="340" height="68" rx="8" fill="#fdf3e2" stroke="#e8cf9e"/>
+<text x="714" y="410" font-size="12.5" fill="#8a5100" font-weight="700" text-anchor="start" letter-spacing="0">Fixed, or waived with a reason</text>
+<text x="714" y="426" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Resume from the blocked step. Work already completed is kept â€”</text>
+<text x="714" y="439" font-size="10.8" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">nothing is rolled back, and nothing is silently skipped.</text>
+<polyline points="870 226 870 240" fill="none" stroke="#e8cf9e" stroke-width="1.6" marker-end="url(#ara)"/>
+<polyline points="870 300 870 314" fill="none" stroke="#e8cf9e" stroke-width="1.6" marker-end="url(#ara)"/>
+<polyline points="870 374 870 388" fill="none" stroke="#e8cf9e" stroke-width="1.6" marker-end="url(#ara)"/>
+<polyline points="659 197 694 197" fill="none" stroke="#e8cf9e" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ara)"/>
+<text x="676" y="189" font-size="9.5" fill="#5a6675" font-weight="400" text-anchor="middle" letter-spacing="0">any step</text>
+<polyline points="700 424 678 424 678 290 661 290" fill="none" stroke="#e8cf9e" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ara)"/>
+<text x="688" y="283" font-size="9.5" fill="#8a5100" font-weight="400" text-anchor="middle" letter-spacing="0">resume</text>
+<rect x="700" y="476" width="340" height="142" rx="8" fill="#f8fafb" stroke="#c6cedb"/>
+<text x="714" y="498" font-size="10" fill="#5a6675" font-weight="700" text-anchor="start" letter-spacing="0.08em">THE RULE THAT MAKES THIS SAFE</text>
+<text x="714" y="519" font-size="11.5" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">Relay never marks a required step done on its own.</text>
+<text x="714" y="534" font-size="11.5" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">It either completes a step it is trusted to complete,</text>
+<text x="714" y="549" font-size="11.5" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">or it holds the run open against a named person</text>
+<text x="714" y="564" font-size="11.5" fill="#16202b" font-weight="400" text-anchor="start" letter-spacing="0">with a clock running.</text>
+<text x="714" y="579" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0"></text>
+<text x="714" y="594" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">A step can only leave the run in two ways: it is done,</text>
+<text x="714" y="609" font-size="11.5" fill="#5a6675" font-weight="400" text-anchor="start" letter-spacing="0">or somebody waived it and said why.</text>
 </svg>

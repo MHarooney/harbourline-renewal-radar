@@ -1,13 +1,24 @@
 brand_name,project_status,last_delivery,scope_summary,signed_at
-Harbor Brew,active,2026-08-12,Shopify CRO + email flows,2026-03-01
+Harbor Brew,active,2026-08-12,Shopify CRO + lifecycle email,2026-03-01
 Acme Shop,active,2026-08-20,Paid social + landing pages,2026-02-01
 Northwind Limited,active,2026-08-05,Full-funnel retention,2025-12-01
 Brightline Commerce,active,2026-08-18,Store redesign + AOV tests,2026-01-15
-Cedar and Co,active,2026-07-30,Ongoing creatives only,2026-04-01
-Lumen Apparel Incorporated,active,2026-08-22,Lifecycle + subscriptions,2025-11-01
+Solstice Beauty,paused,2026-06-01,Paused pending client budget sign-off,2026-03-15
+Fernbrook Athletic,active,2026-08-24,Launch calendar + PDP tests,2026-05-29
 Atlas Homewares LLC,active,2026-08-08,SEO + collection pages,2026-05-01
-Pine and Petal,active,2026-08-15,Influencer + UGC,2026-06-01
-Solstice Beauty,paused,2026-06-01,Paused pending budget,2026-03-15
+Kestrel Cycles,active,2026-08-19,Subscription + retention flows,2026-02-10
+Lumen Apparel Incorporated,active,2026-08-22,Lifecycle + subscriptions,2025-11-01
+Pine and Petal,active,2026-08-15,Influencer + UGC production,2026-06-01
+Cedar and Co,active,2026-07-30,Ongoing creative retainer,2026-04-01
+Verity Skincare,active,2026-08-11,CRO + subscription upsell,2025-10-01
+Maple Row Studio,active,2026-08-06,Email + SMS only,2026-01-05
 Riverstone Outfitters,active,2026-08-25,Re-signed Q3 growth package,2026-09-01
-Riverstone Outfitters,closed,2026-08-01,Prior retainer closed at re-sign,2025-09-01
-Orphan Project Only,active,2026-08-01,No billing row on purpose,2026-07-01
+Riverstone Outfitters,closed,2026-08-01,"Prior retainer, closed at re-sign",2025-09-01
+Copperleaf Home,active,2026-08-21,Merchandising strategy + paid search,2026-08-01
+Mayberry Home,active,2026-08-14,Lifecycle email,2026-03-20
+Marbury Home,active,2026-08-09,Paid social,2026-02-01
+Ridgeway Outdoor,active,2026-08-17,Wholesale + D2C split,2026-04-10
+Ridgeline Outdoors,active,2026-08-13,Content + technical SEO,2026-05-20
+Saint Ives Provisions,active,2026-08-16,Wholesale ops + B2B portal,2026-04-05
+Nightjar Provisions,active,2026-08-23,Packaging + PDP refresh,2026-03-01
+Tidewater Bakehouse,active,2026-08-07,Discovery sprint - contract pending,2026-08-01

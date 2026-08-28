@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harbourline Relay — Client Onboarding (Palm Trial Q1)</title>
+    <title>Relay — Client Onboarding · Harbourline (Question 1)</title>
+    <meta
+      name="description"
+      content="What Relay should do about client onboarding: orchestration and accountability, with humans keeping credentials, legal and money decisions."
+    />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,75 +17,129 @@
     />
     <style>
       :root {
-        --ink: #14201a;
-        --muted: #5c6b63;
-        --accent: #1f6b4a;
-        --line: #d5ddd7;
-        --paper: #f4f7f4;
+        color-scheme: light;
+        --ink: #16202b;
+        --ink-2: #3d4b5a;
+        --muted: #5a6675;
+        --accent: #1c4f8f;
+        --accent-ink: #143c6e;
+        --accent-soft: #eaf1fa;
+        --line: #dfe4ea;
+        --line-strong: #c6cedb;
+        --paper: #f4f6f8;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+        font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
         color: var(--ink);
-        background: linear-gradient(180deg, #eef3ef 0%, var(--paper) 35%);
-        line-height: 1.55;
+        background: var(--paper);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
       main {
-        max-width: 760px;
+        max-width: 46rem;
         margin: 0 auto;
-        padding: 2rem 1.25rem 3rem;
+        padding: 2.5rem 1.25rem 4rem;
       }
       .eyebrow {
         color: var(--accent);
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.09em;
         font-size: 0.75rem;
         font-weight: 600;
         margin: 0 0 0.4rem;
       }
-      h1 { font-size: 1.85rem; letter-spacing: -0.02em; margin: 0 0 0.75rem; }
-      h2 { font-size: 1.15rem; margin: 1.6rem 0 0.6rem; }
-      p, li { color: var(--ink); }
-      .meta, .muted { color: var(--muted); }
+      h1 {
+        font-size: 1.9rem;
+        letter-spacing: -0.021em;
+        line-height: 1.2;
+        margin: 0 0 0.5rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+        margin: 2.25rem 0 0.6rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+      }
+      h2 .num {
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+        margin-right: 0.35rem;
+      }
+      p, li { margin: 0 0 0.7rem; }
+      .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+      .lede { font-size: 1.02rem; }
       table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 10px;
         overflow: hidden;
+        margin-bottom: 0.9rem;
       }
       th, td {
         text-align: left;
-        padding: 0.65rem 0.7rem;
+        padding: 0.6rem 0.7rem;
         border-bottom: 1px solid var(--line);
         vertical-align: top;
       }
+      tr:last-child td { border-bottom: 0; }
       th {
-        background: #e4f2eb;
-        font-size: 0.75rem;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        font-size: 0.72rem;
         text-transform: uppercase;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.05em;
       }
-      ol, ul { padding-left: 1.2rem; }
+      ol, ul { padding-left: 1.15rem; }
+      code {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 0.85em;
+        background: #eef1f5;
+        padding: 0.05rem 0.3rem;
+        border-radius: 4px;
+      }
       figure {
         margin: 1rem 0 0;
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 0.75rem;
+        border-radius: 10px;
+        padding: 0.6rem;
       }
       figure img { width: 100%; height: auto; display: block; }
-      figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
-      .note {
-        margin-top: 2rem;
-        padding: 0.85rem 1rem;
+      figcaption { color: var(--muted); font-size: 0.82rem; margin-top: 0.55rem; }
+      .callout {
+        margin: 1rem 0;
+        padding: 0.9rem 1.1rem;
         border-left: 3px solid var(--accent);
         background: #fff;
+        border-radius: 0 8px 8px 0;
+      }
+      .callout p:last-child { margin-bottom: 0; }
+      .counter {
+        margin-top: 2.5rem;
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 10px;
+        background: #fff;
+        font-size: 0.92rem;
+      }
+      .counter strong { color: var(--accent-ink); }
+      .foot {
+        margin-top: 2.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.85rem;
         color: var(--muted);
-        font-size: 0.9rem;
+      }
+      .foot a { color: var(--accent-ink); }
+      @media (max-width: 560px) {
+        main { padding: 1.75rem 1rem 3rem; }
+        h1 { font-size: 1.5rem; }
+        table { font-size: 0.82rem; }
       }
     </style>
   </head>
@@ -88,120 +147,188 @@
     <main>
       <p class="eyebrow">Palm Outsourcing trial · Question 1</p>
       <h1>What Relay should do about client onboarding</h1>
-      <p class="meta">Audience: Nadia (Ops) · Harbourline · 1–2 pages</p>
+      <p class="meta">For Nadia · Harbourline Operations · from the Relay build</p>
 
-      <p>
-        Harbourline’s nine-step onboarding currently takes ~half a day per brand,
-        varies by person, and sometimes drops steps (one brand went two weeks without
-        Shopify access). With six new brands next month, Relay should own
-        <strong>orchestration, state, reminders, and safe automation</strong> — not
-        replace humans for credentials, legal, or money.
+      <p class="lede">
+        Nine steps, three people, half a day, and one brand that went two weeks without store access.
+        Six more brands land next month, so the variance stops being an irritation and starts being a
+        churn risk.
       </p>
 
-      <h2>1. What sits in Relay vs with a human</h2>
+      <div class="callout">
+        <p>
+          <strong>My position: Relay should own the sequence, the state and the chasing — not the
+          clicking.</strong>
+        </p>
+        <p>
+          Most of the half-day is not work, it is coordination: who has done what, what is waiting on
+          what, and who notices when nothing has moved. That is what should be automated first.
+          Building a bot that drives Shopify’s invite screen is the expensive part and the part that
+          breaks quietly. Building the thing that knows a Shopify invite has been sitting unaccepted
+          for 48 hours is cheap and never breaks.
+        </p>
+      </div>
+
+      <h2><span class="num">1.</span>Relay versus a person</h2>
       <table>
         <thead>
-          <tr><th>Step</th><th>Relay</th><th>Human</th></tr>
+          <tr><th>Step</th><th>Relay does</th><th>A person does</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td>Shopify / analytics access</td>
-            <td>Task, invite link/status, SLA, escalate if stale</td>
-            <td>Grant/accept access in the vendor UI</td>
+            <td>Shopify + analytics access</td>
+            <td>Creates the task, records the invite, chases it, escalates when stale</td>
+            <td>Sends and accepts the invite in the vendor UI</td>
           </tr>
           <tr>
-            <td>Folder / board / kickoff doc</td>
-            <td>Create from approved templates when APIs exist</td>
-            <td>Customize strategy content and owners</td>
+            <td>Folder structure, project board, kickoff doc</td>
+            <td>Creates them from approved templates</td>
+            <td>Writes the strategy content</td>
           </tr>
           <tr>
-            <td>Billing / contract filing</td>
-            <td>Checklist, due dates, evidence links</td>
-            <td>Enter terms, sign, file judgment calls</td>
+            <td>Billing setup, contract filing</td>
+            <td>Holds the checklist, due dates and evidence links</td>
+            <td>Enters terms, signs, files</td>
           </tr>
           <tr>
             <td>Kickoff call</td>
-            <td>Scheduling link + booked/not tracked</td>
-            <td>Resolve calendar conflicts</td>
+            <td>Issues the scheduling link, tracks booked/not booked</td>
+            <td>Resolves the awkward calendar conflicts</td>
           </tr>
           <tr>
             <td>Welcome email</td>
-            <td>Draft from template; send when prerequisites met</td>
-            <td>Approve edge-case tone / first send</td>
+            <td>Drafts from template, releases only once prerequisites are met</td>
+            <td>Approves the send</td>
           </tr>
         </tbody>
       </table>
       <p>
-        <strong>Rule:</strong> Relay never silently skips a required step.
-        Irreversible client-facing actions stay human-gated unless Nadia explicitly
-        trusts an automation.
+        The line is drawn on <strong>reversibility and authority</strong>, not on technical difficulty.
+        Relay automates work that is templated, idempotent and cheap to undo. Anything touching
+        credentials, legal commitments, money, or a client’s inbox stays with a named person — not
+        because a machine could not do it, but because when it goes wrong at 6pm on a Friday you want a
+        person who already knew they owned it.
       </p>
 
-      <h2>2. State Relay tracks</h2>
+      <h2><span class="num">2.</span>What Relay tracks</h2>
       <p>
-        Per <strong>Client</strong> and <strong>OnboardingRun</strong>: owners,
-        start/target dates, run status (<code>active | blocked | complete | cancelled</code>).
+        Per <strong>client</strong>: canonical name, trading names, Shopify domain, and a
+        <code>client_id</code> issued on day zero.<br />
+        Per <strong>run</strong>: owner, start and target dates, status
+        (<code>active | blocked | complete | cancelled</code>).<br />
+        Per <strong>step</strong>: status
+        (<code>pending | in_progress | waiting_external | waiting_human | done | failed | waived</code>),
+        assignee, due and completed times, attempt count, evidence URL, failure reason, waiver
+        reason.<br />
+        Per <strong>automation</strong>: an idempotency key, so a retry cannot create a second folder or
+        a second board.
       </p>
       <p>
-        Per <strong>step</strong>:
-        <code>pending | in_progress | waiting_external | waiting_human | done | failed | waived</code>,
-        assignee, due/completed times, evidence URL, failure reason, attempt count.
-      </p>
-      <p>
-        Plus automation <strong>idempotency keys</strong> (folder id, board id, email id)
-        so retries do not duplicate work.
+        The step-level <code>waived</code> state and its mandatory reason are the part I would not drop.
+        Without it, people work around the system instead of inside it, and the audit trail stops being
+        true.
       </p>
 
-      <h2>3. When a step fails mid-run</h2>
+      <h2><span class="num">3.</span>When a step fails mid-run</h2>
+      <p>The run is <strong>resumable</strong>, never restarted. On failure Relay:</p>
       <ol>
-        <li>Mark the step <code>failed</code> and pause only <strong>dependent</strong> steps.</li>
-        <li>Keep completed work (no destructive rollback of folders/boards already created).</li>
-        <li>Notify the step owner; escalate on SLA breach (same class of miss as the two-week Shopify gap).</li>
-        <li>Resume via <strong>retry</strong>, or <strong>waive</strong> with a required reason in the audit log.</li>
-        <li>Never auto-skip a required step.</li>
+        <li>Marks the step <code>failed</code> and pauses only the steps that depend on it — independent lanes keep going.</li>
+        <li>Keeps completed work. No destructive rollback of a folder or board that already exists.</li>
+        <li>Separates <strong>retryable</strong> (API timeout, rate limit) from <strong>needs-a-person</strong> (invite declined, contract unsigned). Retryable failures retry automatically under the idempotency key; the rest get an owner and an SLA clock.</li>
+        <li>Escalates on SLA breach. This is the two-week access gap, caught on day two.</li>
+        <li>Resumes from the blocked step once it is fixed — or once someone waives it <strong>and says why</strong>.</li>
+      </ol>
+      <p>
+        A required step never silently becomes “done”. It is completed, or the run stays open against a
+        person with a clock running.
+      </p>
+
+      <h2><span class="num">4.</span>What I would need to understand before building</h2>
+      <p>
+        Which of the nine steps have a usable API or template today (that alone decides whether Relay is
+        an orchestrator or a very good checklist); who genuinely owns each step; which steps are
+        required versus nice-to-have; the real dependency graph; and the client identity fields, because
+        billing, projects and renewals will all need to join on them later.
+      </p>
+
+      <h2><span class="num">5.</span>Assumptions that break the build if they are wrong</h2>
+      <ol>
+        <li><strong>One linear checklist per brand.</strong> Breaks on multi-store clients and phased SOWs.</li>
+        <li><strong>Drive / board / email APIs are available.</strong> If not, Relay is checklist-plus-reminders — still valuable, but a different product.</li>
+        <li><strong>One accountable owner per step.</strong> Breaks if pods need a shared queue instead.</li>
+        <li><strong>The client name is a stable join key.</strong> It is not. See §8.</li>
+        <li><strong>The process is sequential.</strong> It is mostly parallel; a sequential model would make onboarding <em>slower</em> than the manual version.</li>
       </ol>
 
-      <h2>4. Understand before implementation</h2>
-      <p>
-        Systems of record and API readiness for each of the nine steps; who owns each step;
-        required vs optional steps and hard dependencies (e.g. welcome email only after
-        contract + billing); the <strong>client identity</strong> fields that will also feed renewals later.
-      </p>
-
-      <h2>5. Assumptions that break the architecture if wrong</h2>
+      <h2><span class="num">6.</span>First three questions for Nadia</h2>
       <ol>
-        <li>One linear checklist per brand (fails for multi-store / phased SOWs).</li>
-        <li>Drive/board/email APIs exist (otherwise Relay is checklist + reminders only).</li>
-        <li>A single ops owner model (fails if pods need a work queue).</li>
-        <li>Client name is a stable join key (fails without a golden <code>client_id</code>).</li>
-        <li>The process is strictly sequential (many steps can run in parallel).</li>
+        <li>
+          <strong>Which of the nine steps can Relay actually write into today?</strong>
+          → Decides whether we ship orchestration plus automation, or orchestration only. It changes the
+          scope by weeks.
+        </li>
+        <li>
+          <strong>Which steps are genuinely required, and what blocks what?</strong>
+          → Defines “complete” and the dependency gate. Without it, Relay either blocks on optional work
+          or lets brands reach kickoff without a signed contract.
+        </li>
+        <li>
+          <strong>Who gets paged when Shopify access is still open after 48 hours — and is 48 hours the
+          right number?</strong>
+          → Sets ownership, the SLA and the escalation path. Without an answer, Relay tracks the problem
+          beautifully and still nobody acts.
+        </li>
       </ol>
 
-      <h2>6. First three questions for Nadia</h2>
-      <ol>
-        <li><strong>Which of the nine steps already have a system API or template Relay may write into?</strong> → Sets automation vs checklist-only scope.</li>
-        <li><strong>What is the hard stop before kickoff / welcome email?</strong> → Sets the dependency graph and “complete.”</li>
-        <li><strong>Who is paged when Shopify access is still open after 48 hours?</strong> → Sets ownership and escalation.</li>
-      </ol>
-
-      <h2>7. Flow diagram</h2>
+      <h2><span class="num">7.</span>Flow diagram</h2>
       <figure>
-        <img src="../onboarding-flow.png" alt="Relay client onboarding flow diagram" />
-        <figcaption>Proposed onboarding run: create → checklist → outcomes → escalate/resume → complete.</figcaption>
+        <img
+          src="../onboarding-flow.png"
+          alt="Relay onboarding flow: a new brand creates an onboarding run; nine steps run in three parallel lanes — access granted by a person, workspace created by Relay, commercial decisions made by a person. Relay records status, owner, due date, attempts and evidence for every step. A dependency gate holds the kickoff call and welcome email until access, contract and billing are done. Any step that fails is either retried automatically under an idempotency key, or assigned to a person with an SLA clock that escalates on breach; once fixed or waived with a reason, the run resumes from the blocked step with completed work preserved."
+        />
+        <figcaption>
+          The exception path on the right is the point of the system: every step can fail, and every
+          failure has a named route back into the run.
+        </figcaption>
       </figure>
 
-      <h2>8. Issue to flag (not asked)</h2>
-      <p>
-        <strong>Golden client identity on day zero.</strong> Capture Shopify domain +
-        canonical/trading names when the run is created. Without this, onboarding, billing,
-        projects, and renewals cannot join reliably — the same root cause behind missed
-        access and lapsed retainers.
-      </p>
+      <h2><span class="num">8.</span>The thing you did not ask about</h2>
+      <div class="callout">
+        <p><strong>Harbourline has no client identity, and it is already costing you.</strong></p>
+        <p>
+          Onboarding, billing, project delivery and renewals each hold their own version of a client’s
+          name. Nothing joins them. I hit this immediately building the Renewal Radar: the billing
+          export and the project export share no ID, so the two files have to be matched on spelling —
+          and two brands lapsed because that match was being done in someone’s head, or not at all.
+        </p>
+        <p>
+          Onboarding is the one moment where you can fix it cheaply, because it is the moment a client
+          first exists. If the onboarding run issues a <code>client_id</code> and captures the Shopify
+          domain and the legal and trading names on day zero, every downstream system inherits a real
+          key. If it does not, you will be fuzzy-matching names forever and quietly accepting the error
+          rate that comes with it.
+        </p>
+        <p>
+          Small addition to the onboarding scope, large reduction in future pain. I would put it in the
+          first version rather than the second.
+        </p>
+      </div>
 
-      <p class="note">
+      <div class="counter">
+        <strong>The strongest argument against my position:</strong> if most of the nine steps turn out
+        to have clean APIs, then a more aggressively automated Relay would beat mine on raw time saved,
+        and my human-gated boundary would look overly cautious. I would accept that — with the caveat
+        that the two-week access gap was a <em>visibility</em> failure, not an automation failure, so I
+        would still build the state machine first and add automations onto it, rather than the other way
+        round.
+      </div>
+
+      <p class="foot">
         Official submission:
-        <a href="https://docs.google.com/document/d/1Ne8oIgqKSdyNm1I4F_f0MdhdwGn2sRhpNJf6KfoOrJM/edit?usp=sharing">Google Doc (anyone with the link)</a>.
-        This page is the HTML mirror with the same brief and diagram.
+        <a href="https://docs.google.com/document/d/1Ne8oIgqKSdyNm1I4F_f0MdhdwGn2sRhpNJf6KfoOrJM/edit?usp=sharing">Google Doc (anyone with the link can view)</a>.
+        This page mirrors the same brief and diagram.
+        Question 2 — the working Renewal Radar — is
+        <a href="../">here</a>.
       </p>
     </main>
   </body>

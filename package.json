@@ -1,6 +1,6 @@
 {
   "name": "harbourline-renewal-radar",
-  "private": "false",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,12 +9,14 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "predeploy": "npm run build"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"
-  }
+  },
+  "description": "Join a billing export and a project export by client name to surface retainers due in the next 45 days.",
+  "license": "MIT"
 }
