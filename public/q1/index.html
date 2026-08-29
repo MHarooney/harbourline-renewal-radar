@@ -152,25 +152,24 @@
       <p class="lede">
         <strong>What you told me:</strong> nine manual steps across three people, about half a day per
         brand, the process varies by person, things get missed, one brand went two weeks without store
-        access, and six more brands arrive next month.
+        access, six more brands next month.
       </p>
       <p>
         <strong>My reading of it:</strong> the two-week gap is the tell. Nobody chose to leave that
-        brand without access — the process simply had no way to notice. That points at coordination,
-        not execution: who has done what, what is waiting on what, and who finds out when nothing has
-        moved. I would want to confirm that against the real step timings, but if it holds,
+        brand without access &mdash; the process had no way to notice. That points at coordination
+        rather than execution. I would confirm it against real step timings, but if it holds,
         coordination is what to automate first.
       </p>
 
       <div class="callout">
         <p>
-          <strong>My position: Relay should own the sequence, the state and the chasing — not the
+          <strong>My position: Relay should own the sequence, the state and the chasing &mdash; not the
           clicking.</strong>
         </p>
         <p>
-          Building a bot that drives Shopify’s invite screen is the expensive part and the part that
-          breaks quietly. Building the thing that knows a Shopify invite has been sitting unaccepted
-          for 48 hours is cheap and never breaks.
+          A bot that drives Shopify&rsquo;s invite screen is the expensive part and the part that
+          breaks quietly. The thing that knows an invite has sat unaccepted for 48 hours is cheap and
+          never breaks.
         </p>
       </div>
 
@@ -182,37 +181,37 @@
         <tbody>
           <tr>
             <td>Shopify + analytics access</td>
-            <td>Creates the task, records the invite, chases it, escalates when stale</td>
+            <td>Creates the task, records the invite, chases, escalates when stale</td>
             <td>Sends and accepts the invite in the vendor UI</td>
           </tr>
           <tr>
-            <td>Folder structure, project board, kickoff doc</td>
+            <td>Folder, project board, kickoff doc</td>
             <td>Creates them from approved templates</td>
             <td>Writes the strategy content</td>
           </tr>
           <tr>
             <td>Billing setup, contract filing</td>
-            <td>Holds the checklist, due dates and evidence links</td>
+            <td>Holds the checklist, due dates, evidence links</td>
             <td>Enters terms, signs, files</td>
           </tr>
           <tr>
             <td>Kickoff call</td>
             <td>Issues the scheduling link, tracks booked/not booked</td>
-            <td>Resolves the awkward calendar conflicts</td>
+            <td>Resolves calendar conflicts</td>
           </tr>
           <tr>
             <td>Welcome email</td>
-            <td>Drafts from template, releases only once prerequisites are met</td>
+            <td>Drafts from template, releases once prerequisites are met</td>
             <td>Approves the send</td>
           </tr>
         </tbody>
       </table>
       <p>
-        The line is drawn on <strong>reversibility and authority</strong>, not on technical difficulty.
-        Relay automates work that is templated, idempotent and cheap to undo. Anything touching
-        credentials, legal commitments, money, or a client’s inbox stays with a named person — not
-        because a machine could not do it, but because when it goes wrong at 6pm on a Friday you want a
-        person who already knew they owned it.
+        The line is drawn on <strong>reversibility and authority</strong>, not technical difficulty.
+        Relay automates what is templated, idempotent and cheap to undo. Credentials, legal
+        commitments, money and the client&rsquo;s inbox stay with a named person &mdash; not because a
+        machine could not do it, but because when it goes wrong you want someone who already knew they
+        owned it.
       </p>
 
       <h2><span class="num">2.</span>What Relay tracks</h2>
@@ -223,65 +222,63 @@
         (<code>active | blocked | complete | cancelled</code>).<br />
         Per <strong>step</strong>: status
         (<code>pending | in_progress | waiting_external | waiting_human | done | failed | waived</code>),
-        assignee, due and completed times, attempt count, evidence URL, failure reason, waiver
-        reason.<br />
+        assignee, due and completed times, attempt count, evidence URL, failure and waiver reasons.<br />
         Per <strong>automation</strong>: an idempotency key, so a retry cannot create a second folder or
-        a second board.
+        board.
       </p>
       <p>
-        The step-level <code>waived</code> state and its mandatory reason are the part I would not drop.
-        Without it, people work around the system instead of inside it, and the audit trail stops being
-        true.
+        The <code>waived</code> state and its mandatory reason are the part I would not drop. Without it
+        people work around the system rather than inside it, and the audit trail stops being true.
       </p>
 
       <h2><span class="num">3.</span>When a step fails mid-run</h2>
-      <p>The run is <strong>resumable</strong>, never restarted. On failure Relay:</p>
+      <p>The run is <strong>resumable</strong>, never restarted. Relay:</p>
       <ol>
-        <li>Marks the step <code>failed</code> and pauses only the steps that depend on it — independent lanes keep going.</li>
+        <li>Marks the step <code>failed</code> and pauses only its dependents &mdash; independent lanes keep going.</li>
         <li>Keeps completed work. No destructive rollback of a folder or board that already exists.</li>
-        <li>Separates <strong>retryable</strong> (API timeout, rate limit) from <strong>needs-a-person</strong> (invite declined, contract unsigned). Retryable failures retry automatically under the idempotency key; the rest get an owner and an SLA clock.</li>
-        <li>Escalates on SLA breach. This is the two-week access gap, caught on day two.</li>
-        <li>Resumes from the blocked step once it is fixed — or once someone waives it <strong>and says why</strong>.</li>
+        <li>Separates <strong>retryable</strong> (API timeout, rate limit) from <strong>needs-a-person</strong> (invite declined, contract unsigned). Retryable failures retry under the idempotency key; the rest get an owner and an SLA clock.</li>
+        <li>Escalates on SLA breach &mdash; the two-week access gap, caught on day two.</li>
+        <li>Resumes from the blocked step once fixed, or once someone waives it <strong>and says why</strong>.</li>
       </ol>
       <p>
-        A required step never silently becomes “done”. It is completed, or the run stays open against a
-        person with a clock running.
+        A required step never silently becomes &ldquo;done&rdquo;. It is completed, or the run stays open
+        against a person with a clock running.
       </p>
 
       <h2><span class="num">4.</span>What I would need to understand before building</h2>
       <p>
-        Which of the nine steps have a usable API or template today (that alone decides whether Relay is
-        an orchestrator or a very good checklist); who genuinely owns each step; which steps are
-        required versus nice-to-have; the real dependency graph; and the client identity fields, because
-        billing, projects and renewals will all need to join on them later.
+        Which of the nine steps have a usable API or template today &mdash; that alone decides whether
+        Relay is an orchestrator or a very good checklist. Who genuinely owns each step. Which steps are
+        required versus optional. The real dependency graph. And the client identity fields, because
+        billing, projects and renewals all need to join on them later.
       </p>
 
-      <h2><span class="num">5.</span>Assumptions that break the build if they are wrong</h2>
+      <h2><span class="num">5.</span>Assumptions that break the build if wrong</h2>
       <ol>
         <li><strong>One linear checklist per brand.</strong> Breaks on multi-store clients and phased SOWs.</li>
-        <li><strong>Drive / board / email APIs are available.</strong> If not, Relay is checklist-plus-reminders — still valuable, but a different product.</li>
-        <li><strong>One accountable owner per step.</strong> Breaks if pods need a shared queue instead.</li>
-        <li><strong>The client name is a stable join key.</strong> The Question 2 exports show it is not. See §8.</li>
-        <li><strong>The process is sequential.</strong> It is mostly parallel; a sequential model would make onboarding <em>slower</em> than the manual version.</li>
+        <li><strong>Drive / board / email APIs exist.</strong> If not, Relay is checklist-plus-reminders &mdash; still valuable, but a different product.</li>
+        <li><strong>One accountable owner per step.</strong> Breaks if pods need a shared queue.</li>
+        <li><strong>Client name is a stable join key.</strong> The Question 2 exports show it is not. See §8.</li>
+        <li><strong>The process is sequential.</strong> It is mostly parallel; a sequential model would make onboarding <em>slower</em> than doing it by hand.</li>
       </ol>
 
       <h2><span class="num">6.</span>First three questions for Nadia</h2>
       <ol>
         <li>
           <strong>Which of the nine steps can Relay actually write into today?</strong>
-          → Decides whether we ship orchestration plus automation, or orchestration only. It changes the
+          &rarr; Decides whether we ship orchestration plus automation or orchestration only. Changes
           scope by weeks.
         </li>
         <li>
           <strong>Which steps are genuinely required, and what blocks what?</strong>
-          → Defines “complete” and the dependency gate. Without it, Relay either blocks on optional work
-          or lets brands reach kickoff without a signed contract.
+          &rarr; Defines &ldquo;complete&rdquo; and the dependency gate. Without it Relay either blocks
+          on optional work or lets brands reach kickoff without a signed contract.
         </li>
         <li>
-          <strong>Who gets paged when Shopify access is still open after 48 hours — and is 48 hours the
-          right number?</strong>
-          → Sets ownership, the SLA and the escalation path. Without an answer, Relay tracks the problem
-          beautifully and still nobody acts.
+          <strong>Who gets paged when access is still open after 48 hours &mdash; and is 48 hours
+          right?</strong>
+          &rarr; Sets ownership, SLA and escalation. Without an answer Relay tracks the problem
+          beautifully and nobody acts.
         </li>
       </ol>
 
@@ -291,10 +288,7 @@
           src="../onboarding-flow.png"
           alt="Relay onboarding flow: a new brand creates an onboarding run; nine steps run in three parallel lanes — access granted by a person, workspace created by Relay, commercial decisions made by a person. Relay records status, owner, due date, attempts and evidence for every step. A dependency gate holds the kickoff call and welcome email until access, contract and billing are done. Any step that fails is either retried automatically under an idempotency key, or assigned to a person with an SLA clock that escalates on breach; once fixed or waived with a reason, the run resumes from the blocked step with completed work preserved."
         />
-        <figcaption>
-          The exception path on the right is the point of the system: every step can fail, and every
-          failure has a named route back into the run.
-        </figcaption>
+        <figcaption>Every step can fail; every failure has a named route back into the run.</figcaption>
       </figure>
 
       <h2><span class="num">8.</span>The thing you did not ask about</h2>
@@ -304,43 +298,33 @@
           one.</strong>
         </p>
         <p>
-          This is the one place I would push back on the scope you set, so I want to be precise about
-          what is established and what is my inference.
+          <strong>Established, from the Question 2 brief:</strong> the billing and project exports share
+          no client ID, and the same client is spelled differently in each. Two brands lapsed because
+          nobody noticed the renewal date.
         </p>
         <p>
-          <strong>Established, from the Question 2 brief:</strong> the billing export and the project
-          export share no client ID, and the same client is spelled differently in each. Two brands
-          lapsed because nobody noticed the renewal date.
+          <strong>My inference &mdash; stated as inference:</strong> I am <em>not</em> claiming
+          name-matching caused those lapses; the stated cause is that nobody was watching. But the
+          missing shared key is what made the two files hard to join when I built the Renewal Radar, and
+          it is why the tool must show a confidence score and ask a human to confirm some matches rather
+          than just reporting the answer. A system that cannot reliably say &ldquo;this billing row and
+          this project row are the same client&rdquo; is a weaker early-warning system than one that can.
         </p>
         <p>
-          <strong>My inference:</strong> those are two symptoms of the same gap. The stated cause of
-          the lapses is that nobody was watching — I am not claiming name-matching caused them. But
-          building the Renewal Radar, the absence of a shared key is what made the two files hard to
-          join at all, and it is why the tool has to show a confidence score and ask a human to confirm
-          some matches instead of simply reporting the answer. A system that cannot reliably say “this
-          billing row and this project row are the same client” is a weaker early-warning system than
-          one that can, whatever the immediate cause of any given miss.
-        </p>
-        <p>
-          <strong>Why it belongs in onboarding:</strong> it is the moment a client first exists, so it
-          is the cheapest moment to assign identity. If the onboarding run issues a
-          <code>client_id</code> and captures the Shopify domain and the legal and trading names on day
-          zero, every downstream system inherits a real key. If it does not, you will be fuzzy-matching
-          names indefinitely and accepting whatever error rate comes with that.
-        </p>
-        <p>
-          Small addition to the onboarding scope, large reduction in future pain. I would put it in the
-          first version rather than the second.
+          <strong>Why it belongs in onboarding:</strong> it is the moment a client first exists, so it is
+          the cheapest moment to assign identity. If the run issues a <code>client_id</code> and captures
+          the Shopify domain and the legal and trading names on day zero, every downstream system
+          inherits a real key. Otherwise you fuzzy-match names indefinitely. Small addition to scope,
+          large reduction in future pain &mdash; first version, not second.
         </p>
       </div>
 
       <div class="counter">
-        <strong>The strongest argument against my position:</strong> if most of the nine steps turn out
-        to have clean APIs, then a more aggressively automated Relay would beat mine on raw time saved,
-        and my human-gated boundary would look overly cautious. I would accept that — with the caveat
-        that the two-week access gap reads to me as a <em>visibility</em> failure rather than an
-        automation one, so I would still build the state machine first and add automations onto it,
-        rather than the other way round. If the step timings say otherwise, that changes the order, not
+        <strong>The strongest argument against my position:</strong> if most of the nine steps have clean
+        APIs, a more aggressively automated Relay would beat mine on time saved and my human-gated
+        boundary would look over-cautious. I would accept that &mdash; with the caveat that the access
+        gap reads to me as a <em>visibility</em> failure rather than an automation one, so I would still
+        build the state machine first and hang automations off it. Better timings change the order, not
         the architecture.
       </div>
 
@@ -348,7 +332,7 @@
         Official submission:
         <a href="https://docs.google.com/document/d/1Ne8oIgqKSdyNm1I4F_f0MdhdwGn2sRhpNJf6KfoOrJM/edit?usp=sharing">Google Doc (anyone with the link can view)</a>.
         This page mirrors the same brief and diagram.
-        Question 2 — the working Renewal Radar — is
+        Question 2 &mdash; the working Renewal Radar &mdash; is
         <a href="../">here</a>.
       </p>
     </main>
